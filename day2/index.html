@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//    let start=100;
+//    let earn=20;
+//    let lose=10;
+//    let level=8;
+   
+//    for(let i=0;i<level;i++){
+//     if("win"){
+//         start=start+earn
+//     }else{
+//         start=start-lose;
+//     }
+//    }
+//    document.write(start);
+
+
+   let score = 100;
+for (let i = 1; i <= 8; i++) {
+  if (i % 2 === 0) {
+    score += 20; // win
+  } else {
+    score -= 10; // lose
+  }
+}
+console.log(score);
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi2bZVdeQ7EjmpqzVqh808OrUq2A6Cbs5avbDj3aWB&s" alt="">
+    </div>
+    
+    <button id="btn" onclick="hidefun()">hide</button>
+</body>
+
+<script>
+    
+function hidefun(){
+//let image=document.getElementById("image");
+let cont=document.getElementById("container");
+let btn=document.getElementById("btn");
+// cont.innerHTML="";
+// btn.innerText="show"
+
+if(btn.innerText=="hide"){
+    cont.innerHTML="";
+btn.innerText="show";
+}else if(btn.innerText=="show"){
+    cont.innerHTML=`<img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi2bZVdeQ7EjmpqzVqh808OrUq2A6Cbs5avbDj3aWB&s" alt="">`;
+btn.innerText="hide";
+}
+
+}
+
+
+
+
+
+
+</script>
+
+</html>

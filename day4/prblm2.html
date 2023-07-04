@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="cont">
+      4. Deepika wants to create a button that changes the font color of a
+      heading element to purple when clicked. Additionally, when the button is
+      clicked again, it should change the font color back to its original color.
+      How can Deepika implement this behavior using JavaScript's onclick event?
+    </h1>
+    <button onclick="myfun()">change color</button>
+
+  </body>
+
+  <script>
+
+function myfun(){
+    cont=document.getElementById("cont");
+    if(cont.style.color==""){
+        cont.style.color="purple";
+    }else{
+        cont.style.color="";
+    }
+}
+
+
+
+  </script>
+
+
+
+
+</html>

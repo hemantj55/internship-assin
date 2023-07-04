@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1  id="ftt">
+      Michael wants to create a button that changes the text color of a heading
+      element to blue when clicked. Additionally, when the button is clicked
+      again, it should change the text color back to its original color. How can
+      Michael implement this behavior using JavaScript's onclick event?
+    </h1>
+    <button onclick="myfun()">start</button>
+  </body>
+  <script>
+
+function myfun(){
+    var h1=document.getElementById("ftt");
+   
+    if(h1.style.color==""){
+        h1.style.color="blue";
+    }else{
+        h1.style.color="";
+    }
+}
+
+  </script>
+</html>

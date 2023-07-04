@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Table Example</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    #total-row {
+      font-weight: bold;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Dynamically generate the table
+      var table = $('<table>').appendTo('body');
+      var total = 0;
+
+      // Create table header
+      var thead = $('<thead>').appendTo(table);
+      var headerRow = $('<tr>').appendTo(thead);
+      $('<th>').text('Price').appendTo(headerRow);
+      $('<th>').text('Quantity').appendTo(headerRow);
+      $('<th>').text('Total').appendTo(headerRow);
+
+      // Create table rows
+      var tbody = $('<tbody>').appendTo(table);
+      for (var i = 0; i < 10; i++) {
+        var row = $('<tr>').appendTo(tbody);
+
+        // Create input fields for price and quantity
+        $('<td>').append($('<input>').addClass('price')).appendTo(row);
+        $('<td>').append($('<input>').addClass('quantity')).appendTo(row);
+        $('<td>').addClass('total').appendTo(row);
+      }
+
+      // Calculate the total for each row and update the table
+      $('input').on('input', function() {
+        var row = $(this).closest('tr');
+        var price = parseFloat(row.find('.price').val());
+        var quantity = parseInt(row.find('.quantity').val());
+
+        var total = isNaN(price) || isNaN(quantity) ? 0 : price * quantity;
+        row.find('.total').text(total.toFixed(2));
+
+        // Update the sum of all totals
+        var sum = 0;
+        $('.total').each(function() {
+          sum += parseFloat($(this).text());
+        });
+        $('#total-row .total').text(sum.toFixed(2));
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Table Example</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input class="price"></td>
+        <td><input class="quantity"></td>
+        <td class="total"></td>
+      </tr>
+      <!-- Add 9 more rows if needed -->
+    </tbody>
+    <tfoot>
+      <tr id="total-row">
+        <td></td>
+        <td></td>
+        <td class="total"></td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>

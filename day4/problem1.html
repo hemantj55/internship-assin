@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 1. Sarah wants to create a button that changes the background color of a div
+    element to red when clicked. How can she achieve this using JavaScript's
+    onclick event? -->
+
+    <div class="container">
+        <h2 id="hem" style="color: aqua;">hemant bhardwaj</h2>
+    </div>
+    <button id="btn" onclick="myfunct()">start</button>
+  </body>
+  <script>
+
+    function myfunct(){
+        let txt=document.getElementById("hem");
+        if(txt.style.color=="aqua"){
+            txt.style.color="blue";
+        }else{
+            txt.style.color="aqua" 
+        }
+    }
+  </script>
+</html>

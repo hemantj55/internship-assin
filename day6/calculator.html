@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      #display_body {
+        width: 20%;
+        margin: auto;
+
+        padding: 2rem;
+        background-color: rgb(255, 255, 255);
+        border-radius: 3rem;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+      }
+      #container {
+        margin: auto;
+        width: 80%;
+        display: flex;
+        padding-bottom: 2rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+      }
+      .row div {
+        width: 34px;
+        height: 34px;
+        padding: 3px;
+        background-color: rgb(203, 231, 231);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+      }
+      #inputbar {
+        width: 95%;
+        height: 1.5rem;
+        border: transparent;
+        border-radius: 1rem;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+      }
+      #inputbar[type="text"]:hover {
+        border: transparent;
+        box-shadow: rgba(228, 17, 17, 0.25) 0px 54px 55px,
+          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+          rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="display_body">
+      <div id="container">
+        <div id="inputbar"></div>
+
+        <div class="row">
+          <div class="btn">AC</div>
+          <div class="btn">DL</div>
+          <div class="btn">/</div>
+          <div class="btn">*</div>
+        </div>
+        <div class="row">
+          <div class="btn">7</div>
+          <div class="btn">8</div>
+          <div class="btn">9</div>
+          <div class="btn">+</div>
+        </div>
+        <div class="row">
+          <div class="btn">4</div>
+          <div class="btn">5</div>
+          <div class="btn">6</div>
+          <div class="btn">-</div>
+        </div>
+        <div class="row">
+          <div class="btn">1</div>
+          <div class="btn">2</div>
+          <div class="btn">3</div>
+          <div class="btn">.</div>
+        </div>
+        <div class="row">
+          <div class="btn">0</div>
+          <div class="btn">00</div>
+          <div class="btn">000</div>
+          <div class="btn">=</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+ 
+
+
+
+
+      $(document).ready(function () {
+        var result = 0;
+        var preventry = 0;
+        var operation = null;
+        var current = "0";
+        updateresult(result);
+
+
+        $(".btn").on("click", function (event) {
+        var buttonpress = $(this).html();
+        console.log(buttonpress);
+      
+
+
+if(buttonpress==="AC"){
+  result=0;
+  current='0';
+}else if(buttonpress==="DE"){
+  current=current.substring(0,current.length-1);
+}else if(buttonpress=="."){
+  current+='.';
+}else if(isNumber(buttonpress)){
+  if(current==="0" || current==="00"){
+    current=buttonpress;
+  }else{
+    current=current+buttonpress;
+  }
+}else if(isOpertor(buttonpress)){
+  preventry=parseFloat(current);
+  current='';
+}else if(buttonpress==="="){
+  current=operate(preventry,current,operation);
+  operation=null;
+}
+updateresult(current);
+      });
+    });
+     
+    updateresult= function(displayValaue){
+  console.log(displayValaue);
+      var displayValaue=displayValaue.toString();
+      $('#inputbar').html(displayValaue.substring(0,10));
+    }
+
+    isNumber=function(value){
+      return !isNaN(value);
+    }
+    isOpertor=function(value){
+      return value==='/' || value==='*' || value==='+' || value==='-';
+    }
+
+    operate=function(a,b,operation){
+      a=parseFloat(a);
+      b=parseFloat(b);
+      console.log(a,b,operation);
+      if(operation==="+") {return (a+b)};
+     if(operation==="-") return (a-b);
+     if(operation==="*") return (a*b);
+     if(operation==="/") return (a/b);
+    }
+   
+    </script>
+  </body>
+</html>

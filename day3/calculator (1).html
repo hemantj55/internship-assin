@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First Web</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+  </head>
+  <body>
+    <div class="container m-5">
+      <div class="row mt-2">
+        <div class="col-12 col-md-4 text-center bg-dark p-3 rounded-3">
+          <div class="row mt-3">
+            <div class="col bg-white rounded-3 ms-3 me-3 p-4" id="display"></div>
+          </div>
+          <div class="row mt-3">
+            <div class="col bg-white text-dark p-3 rounded-3 me-3 ms-3" onclick="myfun2()">AC</div>
+            <div class="col bg-white text-dark p-3 rounded-3 me-3">DE</div>
+            <div class="col bg-white text-dark p-3 rounded-3 me-3" onclick="myfun('.')">.</div>
+            <div class="col bg-white text-dark p-3 rounded-3 me-3" onclick="myfun('/')">/</div>
+          </div>
+          <div class="row mt-3">
+            <div class="col bg-white text-dark p-3 rounded-3 me-3 ms-3" onclick="myfun(7)">7</div>
+            <div class="col bg-white text-dark p-3 rounded-3 me-3" onclick="myfun(8)">8</div>
+            <div class="col bg-white text-dark p-3 rounded-3 me-3" onclick="myfun(9)">9</div>
+            <div class="col bg-white text-dark p-3 rounded-3 me-3" onclick="myfun('*')">*</div>
+          </div>
+          <div class="row mt-3">
+            <div class="col bg-white text-dark p-3 rounded-3 me-3 ms-3" onclick="myfun(4)">4</div>
+            <div class="col bg-white text-dark p-3 rounded-3 me-3" onclick="myfun(5)">5</div>
+            <div class="col bg-white text-dark p-3 rounded-3 me-3" onclick="myfun(6)">6</div>
+            <div class="col bg-white text-dark p-3 rounded-3 me-3" onclick="myfun('-')">-</div>
+          </div>
+          <div class="row mt-3">
+            <div class="col bg-white text-dark p-3 rounded-3 me-3 ms-3" id="one" onclick="myfun(1)">1</div>
+            <div class="col bg-white text-dark p-3 rounded-3 me-3" onclick="myfun(2)">2</div>
+            <div class="col bg-white text-dark p-3 rounded-3 me-3" onclick="myfun(3)">3</div>
+            <div class="col bg-white text-dark p-3 rounded-3 me-3" onclick="myfun('+')">+</div>
+          </div>
+          <div class="row mt-3">
+            <div class="col bg-white text-dark p-3 rounded-3 me-3 ms-3" onclick="myfun('00')">00</div>
+            <div class="col bg-white text-dark p-3 rounded-3 me-3" onclick="myfun(0)">0</div>
+            <div class="col bg-white text-dark p-3 rounded-3 me-3" onclick="calculate()">=</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+
+    
+
+      function myfun(param){     
+         var res = document.getElementById('display').innerText;
+         res += param;
+         document.getElementById('display').innerText = res;
+
+        }
+
+        function calculate(){
+          var res = document.getElementById('display').innerText;
+          document.getElementById('display').innerText = eval(res);
+        }
+
+        function myfun2(){
+          document.getElementById('display').innerText = '';
+        }
+
+        
+
+    
+    </script>
+
+
+
+  </body>
+</html>

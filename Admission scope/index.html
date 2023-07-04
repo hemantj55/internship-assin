@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- owl carousal css cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" 
+    integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+     integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" 
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <style>
+      *{
+        .navbar {
+       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+      }
+      .navbar {
+       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+      #navbarNavDropdown {
+        display: flex;
+        flex-direction: column;
+      }
+      .collegedetails{
+        width: 90%;
+        margin: auto;
+      }
+      .card-img-top{
+        height: 180px;
+        margin-bottom:1rem ;
+      }
+      .card{
+        gap: 2rem;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+      }
+      .card-body{
+        height: 95%;
+        margin: auto;
+        margin-bottom: 5px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+      }
+      .card-footer-inner{
+        width: 80%;
+        background-color: gray;
+        margin: auto;
+        text-align: center;
+      }
+      .card-footer-body{
+        height: auto;
+        margin: auto;
+        
+        transform: skewY(-2deg);
+        /* margin-bottom: 5px; */
+        padding-bottom: 10px;
+        background-color: beige;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+      }
+      .booking-open{
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+        padding-top: 30px;
+        display: flex;
+      }
+      #formad{
+        
+       display: flex;
+       align-items: center;
+       margin: auto;
+       border-radius: 0cap;
+       
+      }
+      .form-control{
+        border-radius: 5px;
+      }
+      .static-row-section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    margin-right: 15px;
+    margin-left: 40px;
+    margin-top: 20px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+      }
+      .static-row-section >div{
+text-align: center;
+      }
+
+      .footer-end{
+        width: 100%;
+        /* height: 500px; */
+        /* background-color: aqua; */
+      }
+      .middbox{
+        width: 90%;
+        height: 300px;
+        margin: auto;
+        padding-top: 50px;
+        /* background-color: rgb(8, 153, 8); */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        /* align-items: center; */
+        gap: 10px 10px;
+      }
+      .bidboxdiv{
+        width: 23%;
+      }
+      .copywrite{
+        width: 100%;
+        height: 75px;
+        /* background-color: brown; */
+        display: flex;
+        justify-content: center;
+        
+      }
+      .copyrow{
+        width: 59%;
+        display: flex;
+        margin: auto;
+        gap: 10px;
+        flex-direction: row;
+      }
+      .cf_triger{
+
+        position: fixed;
+        right: -40px;
+        background: rgb(11, 33, 240);
+        color: white;
+        padding: 10px 20px;
+        transform: rotate(90deg);
+      }
+      
+      #overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #1f58f5;
+filter:alpha(opacity=70);
+-moz-opacity:0.7;
+-khtml-opacity: 0.7;
+opacity: 0.7;
+z-index:100;
+display: none;
+}
+.login{
+        width: 100%;
+        height: 400px;
+margin: 0 auto;
+display: none;
+position: fixed;
+z-index: 101;
+   top: 50%;  
+      
+        
+      }
+      .formbar{
+        /* min-width: 600px; */
+width: 300px;
+/* min-height: 350px; */
+margin:auto;
+background: #f3f3f3;
+position: relative;
+z-index: 103;
+padding: 10px;
+border-radius: 5px;
+box-shadow: 0 2px 5px #000;
+top: -200px;
+display: flex;
+flex-direction: column;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- new navbar start -->
+
+    <div class="fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"
+            ><img
+              class="ms-5 col-4"
+              src="https://admissionscope.com/public/web/assets/img/logo.jpeg"
+              alt=""
+          /></a>
+          <div class="col-8">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item ms-3">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >HOME</a
+                  >
+                </li>
+                <li class="nav-item ms-3 dropdown">
+                  <a
+                    class="nav-link dropdown-toggle text-dark"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    ABOUT US
+                  </a>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="navbarDropdownMenuLink"
+                  >
+                    <li><a class="dropdown-item" href="#">About Us</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Mission & Vision</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item ms-3 dropdown">
+                  <a
+                    class="nav-link dropdown-toggle text-dark"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    OUR SERVICE
+                  </a>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="navbarDropdownMenuLink"
+                  >
+                    <li><a class="dropdown-item" href="#">Counselling</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Education Loan</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Admision Guidance</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item ms-3">
+                  <a class="nav-link text-dark" href="#">GALLARY</a>
+                </li>
+                <li class="nav-item ms-3">
+                  <a class="nav-link text-dark" href="#">CONTACT US</a>
+                </li>
+                <li class="nav-item ms-3" id="apply">
+                  <div
+                    class="bg-success text-center text-light ps-4 pe-4 pt-2 pb-2"
+                  >
+                    Apply Now
+                  </div>
+                </li>
+                <li class="nav-item ms-3">
+                  <div
+                    class="bg-primary text-center text-light ps-4 pe-4 pt-2 pb-2"
+                  >
+                    CALL US
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+
+
+    <!-- middle start -->
+    <div id="pageimage" class="w-100 mt-5">
+      <img
+        class="w-100 h-auto"
+        src="https://admissionscope.com/public/web/assets/images/slider1.jpg"
+        alt=""
+      />
+    </div>
+
+   <span class="cf_triger">go to login</span>
+   <div class="login">
+    <form class="formbar">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+   </div>
+
+    <div
+      class="bottom bg-primary gap-lg-5"
+      style="
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div class="colleges_type col-3 d-flex">
+        <img
+          class="w-25"
+          src="../Admission scope/icons/open-book.png"
+          alt="jj"
+        />
+        <h4 class="fw-bolder text-light text-wrap text-center">
+          Gov. Indian Engineering Colleges
+        </h4>
+      </div>
+      <div class="colleges_type col-3 d-flex">
+        <img class="fa fa-desktop" alt="" />
+        <h4 class="fw-bolder text-light text-wrap">
+          UGC Recognized Engineering Private Colleges
+        </h4>
+      </div>
+      <div class="colleges_type col-3">
+        <h4 class="fw-bolder text-light text-wrap">
+          AICTE Recognized Engineering Trust College
+        </h4>
+      </div>
+    </div>
+
+    <!-- middle end -->
+    <div class="about bg-success mb-5">
+      <p
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          font-weight: bolder;
+          height: 100px;
+        "
+      >
+        To maintain High Quality, Client Satisfaction and Maximum Accuracy, we
+        accept very limited bookings depending upon <br> our back-end team size
+      </p>
+    </div>
+
+    <div class="engenar d-flex gap-5 col-8 m-auto">
+      <div class="box d-flex justify-content-center align-content-center">
+        <img
+          class="img h-75"
+          src="../Admission scope/image/eng-image.png"
+          alt=""
+        />
+      </div>
+      <div class="box">
+        <h3 class="fw-bolder">Engineering In India</h3>
+        <p class="text-wrap">
+          Engineering in India has emerged as a prominent and thriving field,
+          characterized by its vast scope and significant contributions to
+          various sectors. With a rich history of scientific and technological
+          advancements, India has nurtured a culture of engineering excellence.
+          They have played a pivotal role in revolutionizing sectors like
+          information technology, manufacturing, infrastructure, and renewable
+          energy. Moreover, engineering education in India emphasizes practical
+          knowledge and hands-on experience, preparing graduates to tackle
+          real-world challenges. The government of India has also taken
+          significant initiatives to promote engineering research and
+          development, fostering an ecosystem of innovation and
+          entrepreneurship. Overall, engineering in India continues to thrive,
+          driving progress and shaping the future of technology both nationally
+          and internationally.
+        </p>
+        <ul>
+          <li>Quality Education</li>
+          <li>Gobally Recognised Degree</li>
+          <li>Easy Admission Process</li>
+          <li>Affordable Fee Structure</li>
+          <li>Inernship/Research Opportunity</li>
+          <li>Top Notch accommodation</li>
+        </ul>
+        <div class="buttoneng d-flex gap-5">
+          <div class="bg-success text-light ps-4 pe-4 pt-2 pb-2">About Us</div>
+          <div class="bg-primary text-light ps-4 pe-4 pt-2 pb-2">
+            Call Us Today
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- owl crousel start -->
+
+
+<div class="container mt-5">
+  <h4 class="text-start fw-bold pb-3">Most Popular Engineering Colleges (Bangalore)</h4>
+  <div class="row">
+    <div class="card">
+      <div class="owl-carousel owl-theme collegedetails" id="">
+      <div class="card-body">
+      <img src="../Admission scope/image/bitb.jpg" alt="" class="card-img-top">
+      
+      <div class="card-down">
+      <p class="card-title bg-primary w-75">Bangalor,Karnataka</p>
+      <p class="card-title bg-primary w-50">ESTD 1983</p>
+      <h5 class="card-text">
+        Bangalor Institute Of technology
+      </h5>
+    </div>
+    </div>
+
+    <div class="card-body">
+      <img src="../Admission scope/image/manipal institute.jpeg" alt="" class="card-img-top">
+      
+      <div class="card-down">
+      <p class="card-title bg-primary w-75">Bangalor,Karnataka</p>
+      <p class="card-title bg-primary w-50">ESTD 1983</p>
+      <h5 class="card-text">
+        Manipal Institute Of technology
+      </h5>
+    </div>
+    </div>
+
+    <div class="card-body">
+      <img src="../Admission scope/image/siddaganga.jpg" alt="" class="card-img-top">
+     
+      
+      <div class="card-down">
+      <p class="card-title bg-primary w-75">Bangalor,Karnataka</p>
+            <p class="card-title bg-primary w-50">ESTD 1983</p>
+            <h5 class="card-text">
+              siddaganga Institute Of technology
+            </h5>
+          </div>
+    </div>
+
+    <div class="card-body">
+      <img src="../Admission scope/image/bitb.jpg" alt="" class="card-img-top">
+      
+      <div class="card-down">
+      <p class="card-title bg-primary w-75">Bangalor,Karnataka</p>
+      <p class="card-title bg-primary w-50">ESTD 1983</p>
+      <h5 class="card-text">
+        Bangalor Institute Of technology
+      </h5>
+    </div>
+    </div>
+
+    <div class="card-body">
+      <img src="../Admission scope/image/bitb.jpg" alt="" class="card-img-top">
+      
+      <div class="card-down row-cols-1">
+      <p class="card-title bg-primary w-75">Bangalor,Karnataka</p>
+      <p class="card-title bg-primary w-50">ESTD 1983</p>
+      <h5 class="card-text">
+        Bangalor Institute Of technology
+      </h5>
+    </div>
+    </div>
+
+
+
+  </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-5">
+  <h4 class="text-start fw-bold pb-3">Most Popular Engineering Colleges (Maharashtra)</h4>
+  <div class="row">
+    <div class="card">
+      <div class="owl-carousel owl-theme collegedetails" id="college_details">
+      <div class="card-body">
+      <img src="../Admission scope/image/BHARATI-VIDYAPEETH-DEEMED-UNIVERSITY.jpg" alt="" class="card-img-top">
+      
+      <div class="card-down">
+      <p class="card-title bg-primary w-75">Pune,Maharashtra</p>
+      <p class="card-title bg-primary w-50">ESTD 1989</p>
+      <h5 class="card-text">
+        Bharti Vidyapeeth Deemed University
+      </h5>
+    </div>
+    </div>
+
+    <div class="card-body">
+      <img src="../Admission scope/image/MIT-WORLD-PEACE-UNIVERSITY.jpg" alt="" class="card-img-top">
+      
+      <div class="card-down">
+      <p class="card-title bg-primary w-75">Pune,Maharashtra</p>
+      <p class="card-title bg-primary w-50">ESTD 1983</p>
+      <h5 class="card-text">
+        Maharashtra Institute of Technology (MIT)
+      </h5>
+    </div>
+    </div>
+
+    <div class="card-body">
+      <img src="../Admission scope/image/vnit.jpg" alt="" class="card-img-top">
+      
+      
+      <div class="card-down">
+      <p class="card-title bg-primary w-75">Bangalor,Karnataka</p>
+            <p class="card-title bg-primary w-50">ESTD 1983</p>
+            <h5 class="card-text">
+              Visvesvaraya National Institute of Technology
+            </h5>
+          </div>
+    </div>
+
+    <div class="card-body">
+      <img src="../Admission scope/image/bitb.jpg" alt="" class="card-img-top">
+     
+      <div class="card-down">
+      <p class="card-title bg-primary w-75">Bangalor,Karnataka</p>
+      <p class="card-title bg-primary w-50">ESTD 1983</p>
+      <h5 class="card-text">
+        Bangalor Institute Of technology
+      </h5>
+    </div>
+    </div>
+
+    <div class="card-body">
+      <img src="../Admission scope/image/bitb.jpg" alt="" class="card-img-top">
+      
+      <div class="card-down row-cols-1">
+      <p class="card-title bg-primary w-75">Bangalor,Karnataka</p>
+      <p class="card-title bg-primary w-50">ESTD 1983</p>
+      <h5 class="card-text">
+        Bangalor Institute Of technology
+      </h5>
+    </div>
+    </div>
+
+
+
+  </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- owl carousel end -->
+
+   
+
+<!-- footer start -->
+
+<div class="footer mt-5 pt-2 mb-5" style=" width: 90%; height: 500px; margin: auto;"> 
+  <h2 id="heading-footer" class="text-center mt-3 mb-4">Success Stories From <br>
+    Our Students</h2>
+
+  <div class="row" style="background-color: hwb(240 5% 5%);">
+    <div class="Success-Stories-card">
+        <div class="owl-carousel owl-theme" id="student-feedback">
+          <div class="card-footer-body">
+             <div style="width: 80%; display: flex; justify-content: flex-start; align-items: center;">
+              <img src="https://admissionscope.com/public/web/assets/img/logo.jpeg" alt="" style="width: 150px;">
+            </div>
+              <p style="width: 70%; margin: auto; color: grey;">
+                   “I love Admission Scope . He is expert in carrer counselling , he helps
+                   me to choose right college so that i can pursue my dream .
+                   Now, I am very happy to get admission in one of the best
+                   college of Punjab . Thank you so much Bhaiya . You are so
+                    helpful in nature .Top Admission Consultants in Patna.
+                    better education for my career”
+             </p>
+                <div class="card-footer-inner">
+                   <h3> Munna Kumar</h3>
+                      <p>Student Of BETECH</p>
+                </div>
+          </div>
+
+    <div class="card-footer-body">
+      <a href="#"><img src="https://admissionscope.com/public/web/assets/img/logo.jpeg" alt="" style="width: 100px;"></a>
+      <p style="width: 70%; margin: auto; color: grey;">
+        
+        “Admission Scope Consulatncy is the best consultancy for
+        career guidance.all counsellors r very supportively and
+        knowledgeable for a career.I'm thanking for this consultancy
+        because I get admission in my favourite college through this
+        consultancy. thank you all of team that can support me for
+        better education for my career. ”
+    
+      </p>
+      <div class="card-footer-inner">
+        <h3> Munna Kumar Sharma</h3>
+        <p>Student Of BETECH</p>
+      </div>
+    </div>
+
+    <div class="card-footer-body">
+      <a href="#"><img src="https://admissionscope.com/public/web/assets/img/logo.jpeg" alt="" style="width: 100px;"></a>
+      <p style="width: 70%; margin: auto; color: grey;">
+        
+        “If I were to describe my experience in one word, I would
+        simply say Perfect. Because they guided me during most
+        important time of my life to find a good college. They
+        always come up with best career solutions. They are very
+        friendly and always ready to listen all problems.for better
+        education for my career. ”
+    
+      </p>
+      <div class="card-footer-inner">
+        <h3> Rakesh Kumar</h3>
+        <p>Student Of BETECH</p>
+      </div>
+    </div>
+
+    <div class="card-footer-body">
+      <a href="#"><img src="https://admissionscope.com/public/web/assets/img/logo.jpeg" style="width: 100px;"alt=""></a>
+      <p style="width: 70%; margin: auto; color: grey;">
+        
+        “Admission Scope Consulatncy is the best consultancy for
+        career guidance.all counsellors r very supportively and
+        knowledgeable for a career.I'm thanking for this consultancy
+        because I get admission in my favourite college through this
+        consultancy. thank you all of team that can support me for
+        better education for my career. ”
+    
+      </p>
+      <div class="card-footer-inner">
+        <h3> Dharma Kumar</h3>
+        <p>Student Of BETECH</p>
+      </div>
+    </div>
+
+    <div class="card-footer-body">
+      <a href="#"><img src="https://admissionscope.com/public/web/assets/img/logo.jpeg" alt="" style="width: 100px;"></a>
+      <p style="width: 70%; margin: auto; color: grey;">
+        
+        “I am very satisfied from the service of Admission Scope . It provided
+        me a better guidance and also provided me classes for
+        cracking the exams. Good environment and a friendly guidance
+        that let me realise what is best for me and for my career.
+        thank you all of team that can support me for better
+        education for my career”
+    
+      </p>
+      <div class="card-footer-inner">
+        <h3> Vikash Kumar</h3>
+        <p>Student Of BETECH</p>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+</div>
+
+
+
+<!-- Booking Open For Engineering -->
+
+<div class="booking-open" style="height: fit-content;">
+<div class="aboutbooking col-6">
+  <h4>Booking Open For Engineering <br> Counselling Services 2023</h4>
+  <p class="w-75">
+    To maintain High Quality, Client Satisfaction and Maximum Accuracy,
+     we accept very limited bookings depending upon our back-end team size. 
+     So, we may increase our service charge dynamically as per demand. 
+     you can book our services for "Engineering Admission Support" from here.
+  </p>
+  <ul>
+    <li>Quality Education</li>
+    <li>Gobally Recognised Degree</li>
+    <li>Easy Admission Process</li>
+    <li>Affordable Fee Structure</li>
+  </ul>
+  <button class="ps-4 pe-4 pt-2 pb-2 bg-danger border-0">Just Apply Now</button>
+</div>
+
+<div class="form col-6 m-auto">
+  <div class="innerdiv " style="width: 80%; margin: auto;">
+  <form action="" style="width: 90%; margin: auto;">
+    <form id="formad">
+      <fieldset enabled>
+        
+        <div class="mb-3">
+          
+          <input type="text" id="disabledText" class="form-control" placeholder="Your Name*">
+        </div>
+
+        <div class="mb-3">
+          
+          <input type="text" id="TextInput" class="form-control" placeholder="Your Mobile Number*">
+        </div>
+
+        <div class="mb-3">
+          
+          <input type="text" id="disaxtInput" class="form-control" placeholder="Your Location*">
+        </div>
+
+        <div class="mb-3">
+          
+          <select id="enabledSelect" class="form-select">
+            <option>select cource</option>
+            <option>Engineering</option>
+            <option value="">Others</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="btn-submit ps-4 pe-4 pt-2 pb-2 bg-danger border-0">Submit Now</button>
+      </fieldset>
+    </form>
+  </form>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="bg-primary statics-section-division">
+  <div class="static-container">
+    <div class="row static-row-section">
+      <div class="col-md-4">
+        <div class="static-block text-light d-flex flex-row gap-3 ms-4">
+          <div style="padding-top: 6px;">
+            <h1>5237</h1>
+          </div>
+          <div>
+            <h3>Engineering <br> Admission</h3>
+          </div>
+          
+            
+        
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="static-block text-light d-flex flex-row gap-3">
+          <div style="padding-top: 6px;"><h1>5237</h1></div>
+          <div>
+            <h3>Engineering <br> Admission</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="static-block text-light d-flex flex-row gap-3">
+          <div style="padding-top: 6px;"><h1>5237</h1></div>
+          
+          <div>
+            <h3>Engineering <br> Admission</h3>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- footer down -->
+
+<div class="footer-end">
+  <div class="row middbox">
+       <div class="bidboxdiv"> 
+        <img src="https://admissionscope.com/public/web/assets/img/logo.jpeg" alt="" style="width: 250px; margin-top: 30px;">
+       </div>
+       <div class="bidboxdiv ps-4 pt-4"> 
+        <p>About Us</p>
+        <p>Mission & Vision</p>
+        <p>Our Services</p>
+        <p>Education Loans</p>
+        <p>Career Counseling</p>
+       </div>
+       <div class="bidboxdiv ps-4 pt-4"> 
+        <p>Admission Guidance</p>
+        <p>Our Gallery</p>
+        <p>Contact With Us</p>
+        <p>Apply Now</p>
+        
+       </div>
+       <div class="bidboxdiv ps-4 pt-4"> 
+        <div> <span class="text-dark fw-bold pt-5">Address: </span>1st Floor Mithulok Building, Boring Road ,Near Bharat Petrol Pump Patna, Bihar 800001 India</div>
+        <div><span class="text-dark fw-bold pt-5">Contact: </span>+91 - 9709841199</div>
+       </div>
+  </div>
+</div>
+
+
+<div class="copywrite">
+<div class="copyrow">
+  <div class=" "><p>© Copyright Admission Scope 2023</p></div>
+  <div class=" fw-bold" style="color: darkblue;">+91-9709841199 </div>
+  <div class=" fw-bold" style="color: darkblue;">info@admisionscope.com</div>
+  <div class="" >Developed By : <span class="fw-bold" style="color: darkblue;">SpecBits </span></div>
+</div>
+</div>
+
+
+
+<!-- footer end -->
+
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" 
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- owl carousal cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+     integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+      <script>
+        $(function(){
+
+        
+        $('.collegedetails').owlCarousel({
+    loop:true,
+    autoplay:true,
+    margin:10,
+    // nav:true,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3 
+        },
+        1000:{
+            items:4
+        }
+    }
+})
+
+$('#student-feedback').owlCarousel({
+    loop:true,
+    autoplay:true,
+    margin:10,
+    // nav:true,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3 
+        },
+        1000:{
+            items:3
+        }
+    }
+});
+
+
+
+
+$(window).on('load',function(){
+   console.log('ok');
+var ghlay = $('<div id="overlay"></div>');
+ghlay.show();
+ghlay.appendTo(document.body);
+$('.login').show();
+$('.btn-primary').click(function(){
+$('.login').hide();
+ghlay.appendTo(document.body).remove();
+return false;
+});
+})
+
+
+$('.cf_triger').click(function(){
+  console.log('ok');
+  var overlay = $('<div id="overlay"></div>');
+ 
+  overlay.show();
+overlay.appendTo(document.body);
+$('.login').show();
+$('.btn-primary').click(function(){
+$('.login').hide();
+overlay.appendTo(document.body).remove();
+return false;
+});
+});
+
+
+
+
+
+
+
+
+
+})
+      </script>
+  </body>
+</html>
